@@ -1,5 +1,5 @@
 import './App.css'
-import Login from './pages/login'
+import Login from './pages/Login'
 import QuestionnaireTable from './pages/QuestionnaireTable'
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
   return (
     <>
       {/* <Login /> */}
+
       <QuestionnaireTable />
     </>
   )
