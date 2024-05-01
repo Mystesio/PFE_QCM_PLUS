@@ -1,6 +1,6 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
-import QuestionnaireTable from './pages/QuestionnaireTable'
 import Login from "./pages/Login";
+import Questionnaire from './pages/Questionnaire';
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
 
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/questionnaire" element={<QuestionnaireTable />} />
+        <Route path="/questionnaire" element={<Questionnaire />} />
       </Routes>
 
     </div>
