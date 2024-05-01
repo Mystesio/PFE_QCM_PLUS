@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Button, Flex } from 'antd';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         // Handle the login logic here
         console.log('Login with:', email, password);
