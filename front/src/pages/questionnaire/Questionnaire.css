@@ -1,0 +1,20 @@
+.questionnaire-container {
+    padding: 20px;
+    width: 70vw;
+    background-color: #E8E8E8;
+    margin: auto;
+    border-radius: 20px;
+    color: #212121;
+    text-align: left;
+}
+
+.questionnaire-container h2 {
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.questionnaire-intitule {
+    width: 10%;
+    /* padding-right: 40px; */
+}

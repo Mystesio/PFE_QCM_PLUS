@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { Button, Flex } from 'antd';
-
+import './Login.css'
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
