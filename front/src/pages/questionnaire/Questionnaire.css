@@ -8,13 +8,23 @@
     text-align: left;
 }
 
+h2 {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+th {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 0.1px solid #8b8b8b75;
+}
+
+
 .questionnaire-container h2 {
     text-align: center;
-    padding: 20px;
     font-weight: bold;
 }
 
 .questionnaire-intitule {
     width: 10%;
-    /* padding-right: 40px; */
 }
