@@ -18,21 +18,24 @@ const Questionnaire = () => {
                 </thead>
                 <tbody>
                     {questionnaires.map((question) => (
-                        <tr key={question.id}>
+                        <tr className="questionnaire-tr" key={question.id}>
                             <td>{question.title}</td>
                             <td>{question.description}</td>
-                            <td style={{ display: 'flex' }}>
+                            <br />
+                            <td className="questionnaire-td-action">
                                 <button onClick={() => alert('Edit ' + question.title)}>✏️</button>
                                 <button onClick={() => alert('Delete ' + question.title)}>🗑️</button>
                             </td>
-
+                            <br />
                         </tr>
                     ))}
                 </tbody>
             </table>
-            <button style={{ marginTop: '10px', padding: '10px 20px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
-                Créer un questionnaire
-            </button>
+            <div className='questionnaire-div-btn'>
+                <button className="questionnaire-button">
+                    CREER UN QUESTIONNAIRE
+                </button>
+            </div>
         </div>
     );
 };

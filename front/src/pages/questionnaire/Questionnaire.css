@@ -16,7 +16,17 @@ h2 {
 th {
     font-size: 18px;
     font-weight: bold;
-    border-bottom: 0.1px solid #8b8b8b75;
+    border-bottom: 0.1px solid #36363675;
+}
+
+.questionnaire-td-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.questionnaire-tr {
+    border-bottom: 0.5px solid #8b8b8b75;
 }
 
 
@@ -27,4 +37,21 @@ th {
 
 .questionnaire-intitule {
     width: 10%;
+}
+
+.questionnaire-div-btn {
+    width: 100%;
+}
+
+.questionnaire-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    margin-left: auto;
 }
