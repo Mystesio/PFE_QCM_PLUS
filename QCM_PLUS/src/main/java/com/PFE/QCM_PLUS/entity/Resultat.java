@@ -20,7 +20,7 @@ public class Resultat {
 	
 	    @ManyToOne
 	    @JoinColumn(name = "stagiaire_id")
-	    private Stagiare stagiaire;
+	    private Stagiaire stagiaire;
 
 	    @ManyToOne
 	    @JoinColumn(name = "questionnaire_id")

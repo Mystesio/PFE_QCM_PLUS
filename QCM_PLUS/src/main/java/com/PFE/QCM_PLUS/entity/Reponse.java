@@ -18,7 +18,7 @@ import lombok.Setter;
 @Setter
 public class Reponse {
 
-	 private int id_response;
+	 private int id_reponse;
 	 private String responses_stagiaire;
 	 @Temporal(TemporalType.DATE)
 	 private Date date_created;
@@ -27,11 +27,11 @@ public class Reponse {
 	 
 	    @ManyToOne
 	    @JoinColumn(name = "stagiaire_id")
-	    private Stagiare stagiaire;
+	    private Stagiaire stagiaire;
 	 
 	 
 	  @ManyToOne
-	  @JoinColumn(name = "id_question")
+	  @JoinColumn(name = "id_Question")
 	  @JsonIgnore // Add this annotation to ignore the circular reference
 	  private Question question;
 	    

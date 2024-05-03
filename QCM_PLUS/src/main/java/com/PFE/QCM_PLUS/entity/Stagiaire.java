@@ -16,7 +16,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Stagiare {
+public class Stagiaire {
 	
 	private int StagiaireId;
 	private String email;
