@@ -16,8 +16,11 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Admin { 
-	private int AdminId;
+public class Admin {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long AdminId;
+    
 	private String email;
 	private String nom; 
 	private String prénom;

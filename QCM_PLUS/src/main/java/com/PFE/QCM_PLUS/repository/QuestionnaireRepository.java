@@ -11,5 +11,5 @@ import com.PFE.QCM_PLUS.entity.Questionnaire;
 
 @Repository
 public interface QuestionnaireRepository extends JpaRepository<Questionnaire, Long> {
-    Optional<Questionnaire> findById(int id_questionnaire);
+    Optional<Questionnaire> findById(Long id_questionnaire);
 }

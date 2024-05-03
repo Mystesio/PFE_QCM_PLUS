@@ -18,7 +18,11 @@ import lombok.Setter;
 @Setter
 public class Reponse {
 
-	 private int id_reponse;
+	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 private Long id_reponse;
+    
 	 private String responses_stagiaire;
 	 @Temporal(TemporalType.DATE)
 	 private Date date_created;

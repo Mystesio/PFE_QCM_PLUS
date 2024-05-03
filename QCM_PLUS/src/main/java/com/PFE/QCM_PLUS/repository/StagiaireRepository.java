@@ -12,5 +12,5 @@ import com.PFE.QCM_PLUS.entity.Stagiaire;
 
 @Repository
 public interface StagiaireRepository extends JpaRepository<Stagiaire, Long> {
-    Optional<Stagiaire> findById(int StagiaireId);
+    Optional<Stagiaire> findById(Long StagiaireId);
 }

@@ -15,8 +15,34 @@ public class AdminService {
 
     @Autowired
     private AdminRepository adminRepository;
+    
+    
+    public Admin createAdmin(Admin admin) {
+        return adminRepository.save(admin);
+    }
 
-    public Optional<Admin> getAdminById(int adminId) {
+    public void deleteAdmin(Long adminId) {
+        adminRepository.deleteById(adminId);
+    }
+
+    public Admin updateAdmin(Long adminId, Admin adminDetails) {
+        Optional<Admin> optionalAdmin = adminRepository.findById(adminId);
+        if (optionalAdmin.isPresent()) {
+            Admin existingAdmin = optionalAdmin.get();
+            existingAdmin.setEmail(adminDetails.getEmail());
+            existingAdmin.setNom(adminDetails.getNom());
+            existingAdmin.setPrénom(adminDetails.getPrénom());
+            existingAdmin.setPassword(adminDetails.getPassword());
+            existingAdmin.setDate_created(adminDetails.getDate_created());
+            existingAdmin.setDate_modified(adminDetails.getDate_modified());
+            existingAdmin.setActive(adminDetails.isActive());
+            return adminRepository.save(existingAdmin);
+        } else {
+            throw new RuntimeException("Admin not found with id: " + adminId);
+        }
+    }
+
+    public Optional<Admin> getAdminById(Long adminId) {
         return adminRepository.findById(adminId);
     }
 
@@ -24,12 +50,12 @@ public class AdminService {
         return adminRepository.findAll();
     }
 
-    public List<Questionnaire> getQuestionnairesByAdminId(int adminId) {
+    public List<Questionnaire> getQuestionnairesByAdminId(Long adminId) {
         Optional<Admin> adminOptional = adminRepository.findById(adminId);
         if (adminOptional.isPresent()) {
             return adminOptional.get().getQuestionnaires();
         } else {
-            return null; // You may choose to handle this differently, such as throwing an exception
+            return null; 
         }
     }
 }

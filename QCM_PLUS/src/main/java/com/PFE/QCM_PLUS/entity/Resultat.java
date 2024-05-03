@@ -16,7 +16,9 @@ import lombok.Setter;
 @Setter
 public class Resultat {
 	
-	private int resultatId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long resultatId;
 	
 	    @ManyToOne
 	    @JoinColumn(name = "stagiaire_id")

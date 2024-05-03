@@ -18,7 +18,10 @@ import lombok.Setter;
 @Setter
 public class Stagiaire {
 	
-	private int StagiaireId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long StagiaireId;
+    
 	private String email;
 	private String nom; 
 	private String prénom;

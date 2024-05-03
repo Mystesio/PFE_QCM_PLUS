@@ -18,7 +18,10 @@ import lombok.Setter;
 @Setter
 public class Question {
 	
-	private int id_Question;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id_Question;
+	
 	private String TxtQuestion;
 	private int NbRep;
 	 @Temporal(TemporalType.DATE)

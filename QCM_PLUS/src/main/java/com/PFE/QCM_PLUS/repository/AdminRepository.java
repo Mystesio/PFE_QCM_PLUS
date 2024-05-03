@@ -11,5 +11,5 @@ import com.PFE.QCM_PLUS.entity.Admin;
 
 @Repository
 public interface AdminRepository extends JpaRepository<Admin, Long> {
-    Optional<Admin> findById(int AdminId);
+    Optional<Admin> findById(Long AdminId);
 }
