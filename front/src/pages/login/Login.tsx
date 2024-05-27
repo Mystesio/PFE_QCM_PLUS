@@ -1,7 +1,6 @@
 import { FormEvent, useState } from 'react';
-import { Button, Flex } from 'antd';
 import './Login.css'
-const Login = () => {
+export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -41,16 +40,10 @@ const Login = () => {
                     <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
                         SE CONNECTER
                     </button>
-
-                    <Flex gap="small" wrap="wrap">
-                        <Button type="primary" style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Primary Button</Button>
-                    </Flex>
                 </form>
             </div>
         </div>
     );
-};
-
-export default Login;
+}
 
 

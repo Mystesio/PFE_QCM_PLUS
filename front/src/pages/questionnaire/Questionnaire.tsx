@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import questionnaire from '../../assets/mockQuestionnaire';
 import './Questionnaire.css'
+import Modal from '../../components/modal/Modal';
+import NewQestioannireForm from '../../components/newQuestionnaireForm/NewQuestionnaireForm';
 
-const Questionnaire = () => {
+export default function Questionnaire() {
     const [questionnaires,] = useState(questionnaire);
+    const [showModal, setShowModal] = useState(false);
+
+    const handleOpenModal = () => setShowModal(true);
+    const handleCloseModal = () => setShowModal(false);
 
     return (
         <div className="questionnaire-container">
@@ -32,12 +38,15 @@ const Questionnaire = () => {
                 </tbody>
             </table>
             <div className='questionnaire-div-btn'>
-                <button className="questionnaire-button">
-                    CREER UN QUESTIONNAIRE
+                <button className="questionnaire-button" onClick={handleOpenModal}>
+                    CRÉER UN QUESTIONNAIRE
                 </button>
+
+                <Modal show={showModal} handleClose={handleCloseModal}>
+                    <NewQestioannireForm />
+                </Modal>
             </div>
         </div>
     );
-};
+}
 
-export default Questionnaire;

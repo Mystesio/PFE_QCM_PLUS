@@ -1,4 +1,4 @@
-import { QuestionnaireI } from "../interfaces/questionnaireI";
+import { QuestionnaireI } from "../interfaces/QuestionnaireI";
 
 const questionnaire: QuestionnaireI[] = [
     {
