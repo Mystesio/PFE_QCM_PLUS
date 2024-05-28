@@ -28,7 +28,7 @@ const NewQestioannireForm: React.FC = () => (
             name="basic"
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
-            style={{ maxWidth: 600 }}
+            style={{ maxWidth: 800 }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"

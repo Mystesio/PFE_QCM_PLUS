@@ -1,6 +1,7 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
 import Login from "./pages/login/Login";
 import Questionnaire from './pages/questionnaire/Questionnaire';
+import NewQuestion from './pages/newQuestion/NewQuestion';
 
 function App() {
 
@@ -13,12 +14,15 @@ function App() {
         <ul>
           <li><NavLink to="/login">Login</NavLink></li>
           <li><NavLink to="/questionnaire">Questionnaire</NavLink></li>
+          <li><NavLink to="/new-question">New question</NavLink></li>
         </ul>
       </div>
 
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/questionnaire" element={<Questionnaire />} />
+        <Route path="/new-question" element={<NewQuestion />} />
+
       </Routes>
 
     </div>

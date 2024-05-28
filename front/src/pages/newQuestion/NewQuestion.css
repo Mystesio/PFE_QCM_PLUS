@@ -1,0 +1,40 @@
+.form-container {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.response-container {
+    margin-top: 10px;
+}
+
+.response-container label {
+    margin-right: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button[type="button"] {
+    background-color: #f44336;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+}
