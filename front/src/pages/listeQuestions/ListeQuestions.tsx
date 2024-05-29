@@ -1,12 +1,7 @@
 import mockQuestions from "../../assets/mockQuestions"
-import mockQuestionnaire from "../../assets/mockQuestionnaire";
 import { QuestionsI } from "../../interfaces/QuestionsI";
 import './ListeQuestions.css'
 export default function ListeQuestions() {
-    const getQuestionsForQuestionnaire = (questionIds: number[]) => {
-        return questionIds.map(id => mockQuestions.find(question => question.id_question === id));
-    };
-
     return (
         <table className="question-table">
             <thead>
