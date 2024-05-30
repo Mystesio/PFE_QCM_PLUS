@@ -3,6 +3,7 @@ import Login from "./pages/login/Login";
 import Questionnaire from './pages/questionnaire/Questionnaire';
 import NewQuestion from './pages/newQuestion/NewQuestion';
 import ListeQuestions from './pages/listeQuestions/ListeQuestions';
+import QuestionDetail from './pages/questionDetails/QuestionDetails';
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
         <Route path="/questionnaire" element={<Questionnaire />} />
         <Route path="/new-question" element={<NewQuestion />} />
         <Route path="/questions" element={<ListeQuestions />} />
-
+        <Route path="/questions/:id" element={<QuestionDetail />} />
       </Routes>
 
     </div>
