@@ -10,17 +10,26 @@ function App() {
   return (
     <div>
       <div>
-        <div>
+        <div className="header">
           <h1>QCM</h1>
         </div>
-        <ul>
-          <li><NavLink to="/login">Login</NavLink></li>
-          <li><NavLink to="/questionnaire">Questionnaire</NavLink></li>
-          <li><NavLink to="/new-question">New question</NavLink></li>
-          <li><NavLink to="/questions">question</NavLink></li>
-        </ul>
+        <div className="navbar">
+          <ul>
+            <li>
+              <NavLink to="/login" className={({ isActive }) => isActive ? 'active' : ''}>Login</NavLink>
+            </li>
+            <li>
+              <NavLink to="/questionnaire" className={({ isActive }) => isActive ? 'active' : ''}>Questionnaire</NavLink>
+            </li>
+            <li>
+              <NavLink to="/new-question" className={({ isActive }) => isActive ? 'active' : ''}>New question</NavLink>
+            </li>
+            <li>
+              <NavLink to="/questions" className={({ isActive }) => isActive ? 'active' : ''}>Question</NavLink>
+            </li>
+          </ul>
+        </div>
       </div>
-
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/questionnaire" element={<Questionnaire />} />

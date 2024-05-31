@@ -1,42 +1,30 @@
 import './NewQuestion.css';
-import type { FormProps } from 'antd';
-import { Form, Input } from 'antd';
 import { useState } from 'react';
 
-type FieldType = {
-    username?: string;
-    password?: string;
-    remember?: string;
+type ResponseType = {
+    text: string;
+    isCorrect: boolean;
 };
-
-
 
 const NewQuestion: React.FC = () => {
     const [question, setQuestion] = useState('');
     const [numResponses, setNumResponses] = useState(3);
-    const [responses, setResponses] = useState(Array(numResponses).fill({ text: '', isCorrect: false }));
+    const [responses, setResponses] = useState<ResponseType[]>(Array(numResponses).fill({ text: '', isCorrect: false }));
+    const [error, setError] = useState<string | null>(null);
 
     const handleQuestionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setQuestion(e.target.value);
     };
 
-
-    const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
-        console.log('Success:', values);
-    };
-
-    const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
-
-    // const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    //     console.log('Change:', e.target.value);
-    // };
-
     const handleNumResponsesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = parseInt(e.target.value);
-        setNumResponses(value);
-        setResponses(Array(value).fill({ text: '', isCorrect: false }));
+        if (value >= 1 && value <= 5) {
+            setNumResponses(value);
+            setResponses(Array(value).fill({ text: '', isCorrect: false }));
+            setError(null);
+        } else {
+            setError('Le nombre de réponses doit être compris entre 1 et 5.');
+        }
     };
 
     const handleResponseChange = (index: number, field: string, value: any) => {
@@ -46,8 +34,12 @@ const NewQuestion: React.FC = () => {
     };
 
     const handleAddResponse = () => {
-        setResponses([...responses, { text: '', isCorrect: false }]);
-        setNumResponses(numResponses + 1);
+        if (responses.length < 5) {
+            setResponses([...responses, { text: '', isCorrect: false }]);
+            setNumResponses(numResponses + 1);
+        } else {
+            setError('Le nombre maximum de réponses est 5.');
+        }
     };
 
     const handleRemoveResponse = (index: number) => {
@@ -58,99 +50,67 @@ const NewQuestion: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission logic
         console.log({ question, responses });
     };
 
     return (
         <div className="form-container">
             <h2>Création de questions</h2>
-
-
-            <Form
-                name="basic"
-                labelCol={{ span: 8 }}
-                wrapperCol={{ span: 16 }}
-                style={{ maxWidth: 800 }}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
-                autoComplete="off"
-            >
-                <Form.Item<FieldType>
-                    label="Question">
-                    <Input placeholder="Question"
-                        type="text" value={question}
-                        onChange={handleQuestionChange} />
-                </Form.Item>
-
-                <Form.Item<FieldType>
-                    label="nombre de question">
-                    <Input type="number"
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label>Question</label>
+                    <input type="text" value={question} onChange={handleQuestionChange} />
+                </div>
+                <div className="form-group">
+                    <label>Nombre de réponses</label>
+                    <input
+                        type="number"
                         min="1"
                         max="5"
                         value={numResponses}
-                        onChange={handleNumResponsesChange} />
-                </Form.Item>
+                        onChange={handleNumResponsesChange}
+                    />
+                </div>
+                {error && <p className="error-message">{error}</p>}
                 {responses.map((response, index) => (
-                    <div key={index}>
-                        <Form.Item<FieldType>
-                            label="Quesition {index + 1}">
-                            <Input
+                    <div className="response-group" key={index}>
+                        <div className="form-group">
+                            <label>Réponse {index + 1}</label>
+                            <input
                                 type="text"
-                                min="1"
                                 value={response.text}
-                                onChange={(e) => handleResponseChange(index, 'text', e.target.value)} />
-                            <div>
-                                Marquer comme :
-                                <label>
-                                    <input
-                                        type="radio"
-                                        name={`response-${index}`}
-                                        checked={response.isCorrect}
-                                        onChange={() => handleResponseChange(index, 'isCorrect', true)}
-                                    />
-                                    Bonne réponse
-                                </label>
-                                <label>
-                                    <input
-                                        type="radio"
-                                        name={`response-${index}`}
-                                        checked={!response.isCorrect}
-                                        onChange={() => handleResponseChange(index, 'isCorrect', false)}
-                                    />
-                                    Mauvaise réponse
-                                </label>
-                                <button type="button" onClick={() => handleRemoveResponse(index)}>
-                                    🗑️
-                                </button>
-                            </div>
-                        </Form.Item>
+                                onChange={(e) => handleResponseChange(index, 'text', e.target.value)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Marquer comme :</label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name={`response-${index}`}
+                                    checked={response.isCorrect}
+                                    onChange={() => handleResponseChange(index, 'isCorrect', true)}
+                                />
+                                Bonne réponse
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name={`response-${index}`}
+                                    checked={!response.isCorrect}
+                                    onChange={() => handleResponseChange(index, 'isCorrect', false)}
+                                />
+                                Mauvaise réponse
+                            </label>
+                            <button type="button" onClick={() => handleRemoveResponse(index)}>
+                                🗑️
+                            </button>
+                        </div>
                     </div>
-
                 ))}
-
-
-
-                <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                    <button onSubmit={handleSubmit} className="questionnaire-button">
-                        VALIDER
-                    </button>
-                </Form.Item>
                 <button type="button" onClick={handleAddResponse}>Ajouter une réponse</button>
-
-
-
-            </Form>
-
-
-
-
-
-
-            <form onSubmit={handleSubmit}>
                 <div className="button-container">
-                    {/* <button type="button" onClick={() => alert('Ajouter une question')}>Ajouter une question</button>
-                    <button type="submit">Terminer</button> */}
+                    <button type="submit" className="questionnaire-button">Valider</button>
                 </div>
             </form>
         </div>
