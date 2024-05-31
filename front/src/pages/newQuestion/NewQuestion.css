@@ -1,6 +1,5 @@
-/* NewQuestion.css */
 .form-container {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ddd;
@@ -15,6 +14,57 @@ h2 {
 
 .form-group {
     margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.label-form-group {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 20px auto;
+}
+
+.input-form-group {
+    border-bottom: solid 0.1px;
+    max-width: 20%;
+    margin-left: 20px;
+}
+
+.input-question,
+.input-response {
+    width: calc(100% - 40px);
+    /* Adjust width to accommodate button */
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: solid 0.1px;
+    position: relative;
+}
+
+.input-with-button {
+    position: relative;
+}
+
+.remove-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.form-group-checkbox {
+    display: flex;
+    justify-content: center;
+}
+
+.form-group-checkbox label {
+    margin-left: 20px;
+    font-size: 12px;
 }
 
 .form-group label {
@@ -24,7 +74,7 @@ h2 {
 
 .form-group input[type="text"],
 .form-group input[type="number"] {
-    width: 100%;
+    width: 80%;
     padding: 8px;
     box-sizing: border-box;
     border-radius: 10px;
@@ -38,6 +88,7 @@ h2 {
 .response-group .form-group {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .response-group .form-group label {
@@ -46,15 +97,6 @@ h2 {
 
 .response-group .form-group input[type="radio"] {
     margin-right: 5px;
-}
-
-.response-group .form-group button {
-    margin-left: 10px;
-    background-color: #ffffff;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    cursor: pointer;
 }
 
 .error-message {
@@ -79,4 +121,15 @@ h2 {
 
 .questionnaire-button:hover {
     background-color: #45a049;
+}
+
+.btn-add-question {
+    background-color: #ffffff00;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    margin: auto;
+    display: block;
 }

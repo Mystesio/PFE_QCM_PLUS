@@ -4,6 +4,9 @@
 
 
 /* App.css */
+body {
+    margin: 0;
+}
 
 .header {
     background-color: #4CAF50;
