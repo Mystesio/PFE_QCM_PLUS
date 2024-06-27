@@ -27,7 +27,7 @@ const NewQuestion: React.FC = () => {
         }
     };
 
-    const handleResponseChange = (index: number, field: string, value: any) => {
+    const handleResponseChange = (index: number, field: string, value: unknown) => {
         const newResponses = [...responses];
         newResponses[index] = { ...newResponses[index], [field]: value };
         setResponses(newResponses);
@@ -55,15 +55,15 @@ const NewQuestion: React.FC = () => {
 
     return (
         <div className="form-container">
-            <h2>Création de questions</h2>
-            <form onSubmit={handleSubmit}>
+            <h2>Créér une question</h2>
+            <form className='form' onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Question</label>
                     <input type="text" value={question} onChange={handleQuestionChange} />
                 </div>
-                <div className="form-group">
+                <div className="form-group label-form-group">
                     <label>Nombre de réponses</label>
-                    <input
+                    <input className='input-form-group'
                         type="number"
                         min="1"
                         max="5"
@@ -74,15 +74,19 @@ const NewQuestion: React.FC = () => {
                 {error && <p className="error-message">{error}</p>}
                 {responses.map((response, index) => (
                     <div className="response-group" key={index}>
-                        <div className="form-group">
+                        <div className="form-group input-with-button">
                             <label>Réponse {index + 1}</label>
                             <input
+                                className="input-response"
                                 type="text"
                                 value={response.text}
                                 onChange={(e) => handleResponseChange(index, 'text', e.target.value)}
                             />
+                            <button className="remove-button" type="button" onClick={() => handleRemoveResponse(index)}>
+                                🗑️
+                            </button>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group-checkbox">
                             <label>Marquer comme :</label>
                             <label>
                                 <input
@@ -102,13 +106,11 @@ const NewQuestion: React.FC = () => {
                                 />
                                 Mauvaise réponse
                             </label>
-                            <button type="button" onClick={() => handleRemoveResponse(index)}>
-                                🗑️
-                            </button>
+
                         </div>
                     </div>
                 ))}
-                <button type="button" onClick={handleAddResponse}>Ajouter une réponse</button>
+                <button type="button" onClick={handleAddResponse} className='btn-add-question'>Ajouter une réponse</button>
                 <div className="button-container">
                     <button type="submit" className="questionnaire-button">Valider</button>
                 </div>
