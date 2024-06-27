@@ -5,25 +5,25 @@ const mockQuestionnaire: QuestionnaireI[] = [
         id: 1,
         title: "TypeScript Basics",
         description: "Testez vos connaissances de base en TypeScript.",
-        questions: [1, 2],
+        stagiaireId: [1],
     },
     {
         id: 2,
         title: "Java Basics",
         description: "Testez vos connaissances de base en Java.",
-        questions: [3, 4],
+        stagiaireId: [2],
     },
     {
         id: 3,
         title: "Python Basics",
         description: "Testez vos connaissances de base en Python.",
-        questions: [5, 6],
+        stagiaireId: [3],
     },
     {
         id: 4,
         title: "Haskell Basics",
         description: "Testez vos connaissances de base en Haskell.",
-        questions: [7, 8],
+        stagiaireId: [1, 3],
     },
 ];
 
