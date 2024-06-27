@@ -4,6 +4,8 @@ import Questionnaire from './pages/questionnaire/Questionnaire';
 import NewQuestion from './pages/newQuestion/NewQuestion';
 import ListeQuestions from './pages/listeQuestions/ListeQuestions';
 import QuestionDetail from './pages/questionDetails/QuestionDetails';
+import ListeStagiaires from './pages/listeStagiaires/ListeStagiaires';
+import DetailsStagiaire from './pages/detailsStagiaire/DetailsStagiaire';
 
 function App() {
 
@@ -27,6 +29,9 @@ function App() {
             <li>
               <NavLink to="/questions" className={({ isActive }) => isActive ? 'active' : ''}>Question</NavLink>
             </li>
+            <li>
+              <NavLink to="/stagiaires" className={({ isActive }) => isActive ? 'active' : ''}>Stagiaires</NavLink>
+            </li>
           </ul>
         </div>
       </div>
@@ -36,6 +41,9 @@ function App() {
         <Route path="/new-question" element={<NewQuestion />} />
         <Route path="/questions" element={<ListeQuestions />} />
         <Route path="/questions/:id" element={<QuestionDetail />} />
+        <Route path="/stagiaires" element={<ListeStagiaires />} />
+        <Route path="/stagiaire/:id" element={<DetailsStagiaire />} />
+
       </Routes>
 
     </div>
