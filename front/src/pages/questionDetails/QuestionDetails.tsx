@@ -88,7 +88,7 @@ const QuestionDetail: React.FC = () => {
                                 </li>
                             ))
                         ) : (
-                            <li>Aucune réponse sélectionnée</li>
+                            <p>Aucune réponse sélectionnée</p >
                         )}
                     </ul>
                 </div>
