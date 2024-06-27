@@ -55,8 +55,8 @@ const NewQuestion: React.FC = () => {
 
     return (
         <div className="form-container">
-            <h2>Création de questions</h2>
-            <form onSubmit={handleSubmit}>
+            <h2>Créér une question</h2>
+            <form className='form' onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Question</label>
                     <input type="text" value={question} onChange={handleQuestionChange} />

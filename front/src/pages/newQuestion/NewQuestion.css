@@ -1,15 +1,21 @@
+.form-container .form {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
 .form-container {
     max-width: 900px;
     margin: 50px auto;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    /* border: 1px solid #000000; */
+    border-radius: 20px;
     background-color: #E8E8E8;
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    margin-top: 40px;
 }
 
 .form-group {
@@ -28,6 +34,10 @@ h2 {
     border-bottom: solid 0.1px;
     max-width: 20%;
     margin-left: 20px;
+}
+
+input {
+    border: #000000 solid 1px;
 }
 
 .input-question,
@@ -117,6 +127,11 @@ h2 {
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
+    width: 250px;
+    text-align: center;
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 40px;
 }
 
 .questionnaire-button:hover {

@@ -35,7 +35,8 @@ const NewQestioannireForm: React.FC = () => (
         >
             <Form.Item<FieldType>
                 label="Intitulé">
-                <Input placeholder="Nom de votre questionnaire" />
+                <Input placeholder="Nom de votre questionnaire"
+                    style={{ border: '1px solid #000', borderRadius: '10px' }} />
             </Form.Item>
 
             <Form.Item<FieldType>
@@ -45,7 +46,7 @@ const NewQestioannireForm: React.FC = () => (
                     maxLength={1000}
                     onChange={onChange}
                     placeholder="Description de votre questionnaire"
-                    style={{ height: 250 }}
+                    style={{ height: 250, border: '1px solid #000', borderRadius: '10px' }}
                 />
             </Form.Item>
 
