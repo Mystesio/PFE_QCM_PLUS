@@ -9,7 +9,7 @@ body {
 }
 
 .header {
-    background-color: #4CAF50;
+    background-color: #6947ED;
     padding: 1rem;
     color: white;
     text-align: center;
@@ -46,6 +46,6 @@ body {
 }
 
 .active {
-    background-color: #4CAF50;
+    background-color: #6947ED;
     color: white;
 }

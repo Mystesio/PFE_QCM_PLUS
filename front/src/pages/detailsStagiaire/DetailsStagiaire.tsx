@@ -1,6 +1,6 @@
 // src/components/DetailsStagiaire.tsx
+import './DetailsStagiaire.css'
 import { useNavigate, useParams } from 'react-router-dom';
-import './DetailsStagiaire.css';
 import mockStagiaires from '../../assets/mockStagiares';
 import mockQuestionnaire from '../../assets/mockQuestionnaire';
 import { StagiaireI, StagiaireQuestionnaire } from '../../interfaces/StagiaireI';
