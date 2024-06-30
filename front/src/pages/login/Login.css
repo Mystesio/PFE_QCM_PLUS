@@ -33,7 +33,7 @@
 
 .login-form button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #6947ED;
     color: white;
     border: none;
     border-radius: 10px;
@@ -46,5 +46,5 @@
 }
 
 .login-form button:hover {
-    background-color: #45a049;
+    background-color: #7157db;
 }
